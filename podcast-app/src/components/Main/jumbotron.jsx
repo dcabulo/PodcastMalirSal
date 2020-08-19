@@ -6,17 +6,29 @@ class Jumbotron extends Component {
     super();
     this.state = {
       counter: 0,
+      loading: false,
     };
   }
-  componentDidMount() {
+
+  initialCounter = () => {
+    this.setState({ loading: true })
     var counterRef = firebase.database().ref("counter");
     counterRef.on("value", (snap) => {
       this.setState({
+        loading: false,
         counter: snap.val(),
       });
     });
+    console.log(this.state.counter);
+    
+  }
+
+  componentDidMount() {
+    this.initialCounter()
+  
   }
   render() {
+    const checkLoading = this.state.loading ? <span className="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span> : this.state.counter
     return (
       <section className="jumbotron text-center">
         <div className="container">
@@ -31,7 +43,7 @@ class Jumbotron extends Component {
             <button className="btn btn-secondary btn-lg my-2">
               <i className="far fa-heart"></i>
               <span className="badge badge-ligth ml-2">
-                {this.state.counter}
+                {checkLoading}
               </span>
             </button>
           </div>
