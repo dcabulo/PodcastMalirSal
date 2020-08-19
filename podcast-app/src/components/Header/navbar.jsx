@@ -22,7 +22,7 @@ const NavBar = () => {
               d="M10 8V3a2 2 0 1 0-4 0v5a2 2 0 1 0 4 0zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3z"
             />
           </svg>
-          Podcast Malir-Sal
+          <strong>Podcast Malir-Sal</strong>
         </a>
         <button
           className="navbar-toggler collapsed"
