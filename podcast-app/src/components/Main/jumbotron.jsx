@@ -7,28 +7,37 @@ class Jumbotron extends Component {
     this.state = {
       counter: 0,
       loading: false,
+      pass: true,
     };
   }
-
   initialCounter = () => {
-    this.setState({ loading: true })
-    var counterRef = firebase.database().ref("counter");
+    this.setState({ loading: true });
+    const counterRef = firebase.database().ref("counter");
     counterRef.on("value", (snap) => {
       this.setState({
         loading: false,
         counter: snap.val(),
       });
     });
-    console.log(this.state.counter);
-    
-  }
+  };
+
+  /*  changeBackGround = (e,color) => {
+    e.target.style.color = color;
+  }; */
 
   componentDidMount() {
-    this.initialCounter()
-  
+    this.initialCounter();
   }
   render() {
-    const checkLoading = this.state.loading ? <span className="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span> : this.state.counter
+    const checkLoading = this.state.loading ? (
+      <span
+        className="spinner-grow spinner-grow-sm"
+        role="status"
+        aria-hidden="true"
+      ></span>
+    ) : (
+      this.state.counter
+    );
     return (
       <section className="jumbotron text-center">
         <div className="container">
@@ -40,17 +49,32 @@ class Jumbotron extends Component {
             nihil perferendis voluptatem!
           </p>
           <div className="container">
-            <button className="btn btn-secondary btn-lg my-2">
-              <i className="far fa-heart"></i>
-              <span className="badge badge-ligth ml-2">
-                {checkLoading}
-              </span>
+            <button
+              className="btn btn-secondary btn-lg my-2"
+              onClick={this.updateCounter}
+            >
+              <i
+                onMouseOver={(e) => (e.target.style.color = "#F50057")}
+                onMouseLeave={(e) => (e.target.style.color = "white")}
+                className={this.state.pass ? "far fa-heart" : "fas fa-heart"}
+              ></i>
+              <span className="badge badge-ligth ml-2">{checkLoading}</span>
             </button>
           </div>
         </div>
       </section>
     );
   }
+  updateCounter = () => {
+    const counterRef = firebase.database().ref();
+    if (this.state.pass) {
+      counterRef.update({ counter: this.state.counter + 1 });
+      this.setState({ pass: false });
+    } else {
+      counterRef.update({ counter: this.state.counter - 1 });
+      this.setState({ pass: true });
+    }
+  };
 }
 
 export default Jumbotron;
