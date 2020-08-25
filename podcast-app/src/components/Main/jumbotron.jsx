@@ -1,62 +1,39 @@
 import React, { Component } from "react";
-import * as firebase from "firebase";
+
 
 class Jumbotron extends Component {
-  constructor() {
-    super();
-    this.state = {
-      counter: 0,
-      loading: false,
-      pass: true,
-    };
-  }
-  initialCounter = () => {
-    this.setState({ loading: true });
-    const counterRef = firebase.database().ref("counter");
-    counterRef.on("value", (snap) => {
-      this.setState({
-        loading: false,
-        counter: snap.val(),
-      });
-    });
-  };
-
-  /*  changeBackGround = (e,color) => {
-    e.target.style.color = color;
-  }; */
-
-  componentDidMount() {
-    this.initialCounter();
-  }
   render() {
-    const checkLoading = this.state.loading ? (
+    const { counter, loading, pass, onUpdate } = this.props;
+    const checkLoading = loading ? (
       <span
         className="spinner-grow spinner-grow-sm"
         role="status"
         aria-hidden="true"
       ></span>
     ) : (
-      this.state.counter
+      counter
     );
     return (
       <section className="jumbotron text-center">
         <div className="container">
-          <h1>Malir Sal Podcast</h1>
+          <h1>Podcast Malir-Sal</h1>
+          {/* <img src="https://i.ibb.co/d4D4Bzz/Podcast.png" alt="Podcast-img" width="300" className="img-fluid"/> */}
           <p className="lead text-muted">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus,
-            culpa. Nisi expedita doloremque, quam eius corrupti exercitationem
-            molestias deserunt quaerat pariatur dolorem quos eos, quis odio in
-            nihil perferendis voluptatem!
+            4 personajes hablando sobre como perder el tiempo, ninguno tiene la
+            razón, no somos especialistas en nada y tampoco queremos
+            convertirnos en ello. Nos gusta hablar sobre cosas sin sentido y
+            burlanos del diario vivir espero pierdas el tiempo con nosotros. Si
+            te gusta nuestro contenido puedes darnos un like!
           </p>
           <div className="container">
             <button
               className="btn btn-secondary btn-lg my-2"
-              onClick={this.updateCounter}
+              onClick={onUpdate}
             >
               <i
                 onMouseOver={(e) => (e.target.style.color = "#F50057")}
                 onMouseLeave={(e) => (e.target.style.color = "white")}
-                className={this.state.pass ? "far fa-heart" : "fas fa-heart"}
+                className={pass ? "far fa-heart" : "fas fa-heart"}
               ></i>
               <span className="badge badge-ligth ml-2">{checkLoading}</span>
             </button>
@@ -65,16 +42,6 @@ class Jumbotron extends Component {
       </section>
     );
   }
-  updateCounter = () => {
-    const counterRef = firebase.database().ref();
-    if (this.state.pass) {
-      counterRef.update({ counter: this.state.counter + 1 });
-      this.setState({ pass: false });
-    } else {
-      counterRef.update({ counter: this.state.counter - 1 });
-      this.setState({ pass: true });
-    }
-  };
 }
 
 export default Jumbotron;

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 const DropDown = () => {
   return (
@@ -13,23 +13,22 @@ const DropDown = () => {
               espacio para conocer mas sobre este proyecto.
             </p>
           </div>
-          <div className="col-sm-4 offset-md-1 py4">
+          <div className="col-sm-4 offset-md-1 py-4">
             <h4 className="text-white">Nos encuentras en..</h4>
             <ul className="list-unstyled">
               <li>
-                <a href="#" className="text-white">
-                  CareLibro
-                </a>
+                <p className="text-white m-0">CareLibro(soon)</p>
               </li>
               <li>
-                <a href="#" className="text-white">
+                <a
+                  href="https://www.instagram.com/malirsal.podcast/"
+                  className="text-white"
+                >
                   Insta
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white">
-                  Nunca Entraremos en tiktok
-                </a>
+                <p className="text-white m-0">tiktok(never)</p>
               </li>
             </ul>
           </div>
