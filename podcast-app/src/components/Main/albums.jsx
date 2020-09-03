@@ -72,7 +72,7 @@ const Album = () => {
                   pero de algo estamos seguro es que aqui tambien nos puedes escuchar
                 </p>
                 <a
-                  href="https://open.spotify.com/show/3tQ0GNKkXkob2YyXfXNBr2?si=WR8PtkVlTWKnKJhH3Nh1Ng"
+                  href="https://podcasts.apple.com/co/podcast/malirsal-podcast/id1529371132"
                   className="btn btn-outline-secondary"
                 >
                   Hear me!

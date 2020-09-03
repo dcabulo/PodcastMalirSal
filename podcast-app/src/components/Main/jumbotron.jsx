@@ -17,13 +17,11 @@ class Jumbotron extends Component {
       <section className="jumbotron text-center">
         <div className="container">
           <h1>Podcast Malir-Sal</h1>
-          {/* <img src="https://i.ibb.co/d4D4Bzz/Podcast.png" alt="Podcast-img" width="300" className="img-fluid"/> */}
           <p className="lead text-muted">
-            4 personajes hablando sobre como perder el tiempo, ninguno tiene la
-            razón, no somos especialistas en nada y tampoco queremos
-            convertirnos en ello. Nos gusta hablar sobre cosas sin sentido y
-            burlanos del diario vivir espero pierdas el tiempo con nosotros. Si
-            te gusta nuestro contenido puedes darnos un like!
+            Cuatro personajes hablando sobre cómo perder el tiempo, ninguno tiene la
+            razón, no son especialistas en nada y tampoco quieren 
+            convertirse en ello. Les gusta hablar sobre cosas sin sentido y
+            burlarse del diario vivir. Escuchalos y si te gusta el contenido, compártelo y dale "me gusta"
           </p>
           <div className="container">
             <button

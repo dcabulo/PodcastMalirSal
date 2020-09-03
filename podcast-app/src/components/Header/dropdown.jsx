@@ -7,9 +7,10 @@ const DropDown = () => {
         <div className="row">
           <div className="col-sm-8 col-md-7 py-4">
             <h4 className="text-white">Algo de nosotros</h4>
-            <p className="text-white-50">
-              Un grupo de amigos hablando sobre experiencias, incoherencias y
-              sobretodo hablando sobre como perder el tiempo. Quedate en este
+            <p className="text-justify text-white-50">
+              Un grupo de amigos Juancho, Richard, Sebas y Diego, 3 paisas y un desconocido
+              hablando sobre experiencias, incoherencias y
+              sobre todo hablando de cosas sin sentido. Quedate en este
               espacio para conocer mas sobre este proyecto.
             </p>
           </div>

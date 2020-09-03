@@ -4,7 +4,7 @@ const NavBar = () => {
   return (
     <div className="navbar navbar-dark bg-dark shadow-sm">
       <div className="container d-flex justify-content-between">
-        <a href="https://www.instagram.com/malirsal.podcast/" className="navbar-brand d-flex align-items-center">
+        <a href="https://www.instagram.com/podcast.malirsal/" className="navbar-brand d-flex align-items-center">
           <svg
             width="1em"
             height="1em"
